@@ -1,4 +1,4 @@
-from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit
+from PyQt6.QtWidgets import QApplication, QWidget, QLineEdit, QLabel
 from PyQt6.QtGui import QIcon, QFont
 import sys
 
@@ -25,6 +25,20 @@ class Window(QWidget):
         line_edit3.setGeometry(0,100,400,40)
         line_edit3.setPlaceholderText("This is password type QLineEdit")
         line_edit3.setEchoMode(QLineEdit.EchoMode.Password)
+
+        self.line_edit4 = QLineEdit(self)
+        self.line_edit4.setGeometry(0,150,400,40)
+        self.line_edit4.setPlaceholderText("Press enter to change label below")
+        self.line_edit4.returnPressed.connect(self.le4_changed)
+
+        self.label_le4 = QLabel(self)
+        self.label_le4.setText("<Empty>")
+        self.label_le4.move(0,200)
+        self.label_le4.setFixedWidth(300)
+        self.label_le4.setFont(QFont("Time",16))
+
+    def le4_changed(self):
+        self.label_le4.setText(self.line_edit4.text())
         
 if __name__ == '__main__':
     app = QApplication(sys.argv)
