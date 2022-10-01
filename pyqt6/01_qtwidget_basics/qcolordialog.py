@@ -3,10 +3,11 @@ from PyQt6.QtGui import QIcon, QFont
 import sys
 
 class ExampleColorDialog(QWidget):
+
     def __init__(self):
         super().__init__()
 
-        self.setGeometry(200,200, 700, 400)
+        self.setGeometry(200, 200, 700, 400)
         self.setWindowTitle("PyQt6 QTableWidget")
         self.setWindowIcon(QIcon('images/python.png'))
 
@@ -16,6 +17,7 @@ class ExampleColorDialog(QWidget):
         self.setLayout(main_layout)
 
     def _create_color_write_layout(self):
+        
         layout = QVBoxLayout()
 
         self._textedit = QTextEdit()
@@ -38,6 +40,7 @@ class ExampleColorDialog(QWidget):
         if color.isValid():
             self._textedit.setTextColor(color)
             self._show_color_name.setText(f"Color name: {color.name()}")
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
